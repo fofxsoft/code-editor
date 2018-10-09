@@ -24,7 +24,7 @@ function Editor(ele, id, value) {
     }
 
     this.frame = document.createElement("div");
-    this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="editor/${url}"></iframe>`;
+    this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${ele.getAttribute("src")}${url}"></iframe>`;
     this.frame = this.frame.firstChild;
 
     if (value && value !== "") {
