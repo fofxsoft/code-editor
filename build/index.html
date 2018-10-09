@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+    <title>Code Editor</title>
+
+    <link href="editor/editor.css" rel="stylesheet">
+    <script src="editor/editor.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 7px 0 75px;
+        }
+
+        #save {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            height: 16px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        #save:hover {
+            opacity: 1;
+        }
+
+        #menu .url {
+            width: 100%;
+            box-sizing: border-box;
+            height: 26px;
+            margin: 7px 0 7px 0;
+        }
+
+        #menu input[name=url] {
+            width: 100%;
+            padding: 5px 7px 5px 7px;
+            color: #fff;
+            background: #0b8fe8;
+            border: 0 none;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 12pt;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+        }
+
+        #menu input:focus {
+            outline: 0;
+        }
+
+        #menu form ::placeholder {
+            color: #fff;
+            opacity: 0.4;
+        }
+
+        #menu .code-icon {
+            position: absolute;
+            height: 16px;
+            top: 8px;
+            left: 38px;
+            margin: 4px;
+            opacity: 0.8;
+        }
+
+        #main {
+            border-top: 40px #007acc solid;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="editor" name="main" id="main" language="mysql" url="https://raw.githubusercontent.com/fofxsoft/fofxsoft.github.io/master/example-sql.sql">
+    <div id="menu">
+        <img class="code-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjc4LjkgNTExLjVsLTYxLTE3LjdjLTYuNC0xLjgtMTAtOC41LTguMi0xNC45TDM0Ni4yIDguN2MxLjgtNi40IDguNS0xMCAxNC45LTguMmw2MSAxNy43YzYuNCAxLjggMTAgOC41IDguMiAxNC45TDI5My44IDUwMy4zYy0xLjkgNi40LTguNSAxMC4xLTE0LjkgOC4yem0tMTE0LTExMi4ybDQzLjUtNDYuNGM0LjYtNC45IDQuMy0xMi43LS44LTE3LjJMMTE3IDI1Nmw5MC42LTc5LjdjNS4xLTQuNSA1LjUtMTIuMy44LTE3LjJsLTQzLjUtNDYuNGMtNC41LTQuOC0xMi4xLTUuMS0xNy0uNUwzLjggMjQ3LjJjLTUuMSA0LjctNS4xIDEyLjggMCAxNy41bDE0NC4xIDEzNS4xYzQuOSA0LjYgMTIuNSA0LjQgMTctLjV6bTMyNy4yLjZsMTQ0LjEtMTM1LjFjNS4xLTQuNyA1LjEtMTIuOCAwLTE3LjVMNDkyLjEgMTEyLjFjLTQuOC00LjUtMTIuNC00LjMtMTcgLjVMNDMxLjYgMTU5Yy00LjYgNC45LTQuMyAxMi43LjggMTcuMkw1MjMgMjU2bC05MC42IDc5LjdjLTUuMSA0LjUtNS41IDEyLjMtLjggMTcuMmw0My41IDQ2LjRjNC41IDQuOSAxMi4xIDUuMSAxNyAuNnoiLz48L3N2Zz4=">
+        <img id="save" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDMzLjk0MSAxMjkuOTQxbC04My44ODItODMuODgyQTQ4IDQ4IDAgMCAwIDMxNi4xMTggMzJINDhDMjEuNDkgMzIgMCA1My40OSAwIDgwdjM1MmMwIDI2LjUxIDIxLjQ5IDQ4IDQ4IDQ4aDM1MmMyNi41MSAwIDQ4LTIxLjQ5IDQ4LTQ4VjE2My44ODJhNDggNDggMCAwIDAtMTQuMDU5LTMzLjk0MXpNMjI0IDQxNmMtMzUuMzQ2IDAtNjQtMjguNjU0LTY0LTY0IDAtMzUuMzQ2IDI4LjY1NC02NCA2NC02NHM2NCAyOC42NTQgNjQgNjRjMCAzNS4zNDYtMjguNjU0IDY0LTY0IDY0em05Ni0zMDQuNTJWMjEyYzAgNi42MjctNS4zNzMgMTItMTIgMTJINzZjLTYuNjI3IDAtMTItNS4zNzMtMTItMTJWMTA4YzAtNi42MjcgNS4zNzMtMTIgMTItMTJoMjI4LjUyYzMuMTgzIDAgNi4yMzUgMS4yNjQgOC40ODUgMy41MTVsMy40OCAzLjQ4QTExLjk5NiAxMS45OTYgMCAwIDEgMzIwIDExMS40OHoiLz48L3N2Zz4=">
+        <div class="url">
+            <form autocomplete="off" action="editor/" method="GET" target="main">
+                <input autocomplete="off" type="text" name="url" placeholder="File URL">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("save").addEventListener("click", () => {
+            console.log(editor.main.getCode());
+
+            const errors = editor.main.getErrors();
+
+            Object.keys(errors).forEach((key) => {
+                console.log(`${errors[key].message} [${errors[key].line}:${errors[key].column}]`);
+            });
+        });
+    </script>
+</body>
+
+</html>
