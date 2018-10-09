@@ -67,7 +67,7 @@ or
 ## Methods
 The initialization logic will create the editor array used to access the methods.
 
-- getCode()  
+- **getCode()**  
   Returns a string. This will fetch the current code in the editor.  
   &nbsp;  
   ```javascript
@@ -75,7 +75,7 @@ The initialization logic will create the editor array used to access the methods
   const code = jsEditor.getCode();
   ```
 
-- setCode()  
+- **setCode()**  
   This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
@@ -84,7 +84,7 @@ The initialization logic will create the editor array used to access the methods
   jsEditor.setCode(const jedi = "light side");
   ```
 
-- setCode()  
+- **setCode()**  
   Returns an array of objects. This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
@@ -93,31 +93,31 @@ The initialization logic will create the editor array used to access the methods
   ```
 
   Each message consists of some or all of these parameters.
-  - ruleId  
+  - **ruleId**  
     String. Name of the ESLint rule.
 
-  - severity  
+  - **severity**  
     Integer. Level of the error.
 
-  - message  
+  - **message**  
     String. Friendly error message.
 
-  - line  
+  - **line**  
     Integer. Line where the error first starts.
 
-  - column  
+  - **column**  
     Integer. Column where the error starts.
 
-  - endLine  
+  - **endLine**  
     Integer. Line where the error ends.
 
-  - endColumn  
+  - **endColumn**  
     Integer. Column where the error ends.
 
-  - nodeType  
+  - **nodeType**  
     String. Type of the object where the error occurred.
 
-  - fix  
+  - **fix**  
     Object. Object to assist auto fixing.
 
 ## License
