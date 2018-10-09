@@ -73,13 +73,13 @@ First copy the build/editor folder to your application. Then include the followi
 To include a code editor on your page, simply add the tag.
 
 ```html
-<input type="editor" id="skywalker" name="skywalker" language="javascript" value="">
+<input type="editor" id="skywalker" name="skywalker" src="editor/index.html" language="javascript" value="">
 ```
 
 or
 
 ```html
-<editor id="skywalker" name="skywalker" language="javascript"></editor>
+<editor id="skywalker" name="skywalker" src="editor/index.html" language="javascript"></editor>
 ```
 
 **[back to top](#table-of-contents)**
