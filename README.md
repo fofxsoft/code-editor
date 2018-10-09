@@ -73,13 +73,13 @@ First copy the build/editor folder to your application. Then include the followi
 To include a code editor on your page, simply add the tag.
 
 ```html
-<input type="editor" id="skywalker" name="skywalker" language="javascript" value="">
+<input type="editor" id="skywalker" name="skywalker" src="editor/index.html" language="javascript" value="">
 ```
 
 or
 
 ```html
-<editor id="skywalker" name="skywalker" language="javascript"></editor>
+<editor id="skywalker" name="skywalker" src="editor/index.html" language="javascript"></editor>
 ```
 
 **[back to top](#table-of-contents)**
@@ -112,7 +112,7 @@ or
   - csharp
 
 - **src**  
-  This is the path to the build/editor folder. This is the place where you copied this folder to.
+  Required. This is the path to the build/editor folder. This is the place where you copied this folder to.
   > Typically you set the src to the folder and not the index.html, however if your server is not setup to use index.html as the default you will need to set this to the full path with the folder and file.
 
 - **url**  
@@ -153,7 +153,7 @@ The initialization logic will create the editor array used to access the methods
   jsEditor.setCode(const jedi = "light side");
   ```
 
-- **setCode()**  
+- **getErrors()**  
   Returns an array of objects. This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
