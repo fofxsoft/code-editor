@@ -1,5 +1,46 @@
-# code-editor
+# Code Editor
 Inline code editor with ESLint based on VS Code.
+
+## Building
+You will need the latest version of [Node](https://nodejs.org/en/download/) installed. The node install will include npm.
+
+**Dependencies**
+
+In the terminal navigate to the project folder.
+```
+$ cd code-editor
+```
+
+Then install the dependencies.
+```
+$ npm install
+```
+
+**Monaco**
+
+In the terminal navigate to the monaco folder.
+```
+$ cd code-editor/monaco/
+```
+
+Then build monaco.
+```
+$ npm run build
+```
+
+**Editor**
+
+In the terminal navigate to the editor folder.
+```
+$ cd code-editor/editor
+```
+
+Then build the editor.
+```
+$ npm run build
+```
+
+> The editor build process will copy over the build files to the build/editor folder. You should now have fresh files in the build folder.
 
 ## Installing
 First copy the build/editor folder to your application. Then include the following in your HTML.
