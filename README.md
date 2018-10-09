@@ -1,6 +1,16 @@
 # Code Editor
 Inline code editor with ESLint based on VS Code.
 
+## Table of Contents
+
+  1. [Building](#building)
+  1. [Rules](#rules)
+  1. [Installing](#installing)
+  1. [Usage](#usage)
+  1. [Attributes](#attributes)
+  1. [Methods](#methods)
+  1. [License](#license)
+
 ## Building
 You will need the latest version of [Node](https://nodejs.org/en/download/) installed. The node install will include npm.
 
@@ -42,8 +52,12 @@ $ npm run build
 
 > The editor build process will copy over the build files to the build/editor folder. You should now have fresh files in the build folder.
 
+**[back to top](#table-of-contents)**
+
 ## Rules
 [JavaScript Rules](https://github.com/fofxsoft/code-editor/blob/master/ESLINT.md)
+
+**[back to top](#table-of-contents)**
 
 ## Installing
 First copy the build/editor folder to your application. Then include the following in your HTML.
@@ -52,6 +66,8 @@ First copy the build/editor folder to your application. Then include the followi
 <link href="editor/editor.css" rel="stylesheet">
 <script src="editor/editor.js"></script>
 ```
+
+**[back to top](#table-of-contents)**
 
 ## Usage
 To include a code editor on your page, simply add the tag.
@@ -65,6 +81,8 @@ or
 ```html
 <editor id="skywalker" name="skywalker" language="javascript"></editor>
 ```
+
+**[back to top](#table-of-contents)**
 
 ## Attributes
 - **id**  
@@ -107,6 +125,8 @@ or
 
 - **innerText**  
   Optional. This is only available for the editor tag. The innerText will populate the editor
+
+**[back to top](#table-of-contents)**
 
 ## Methods
 The initialization logic will create the editor array used to access the methods.
@@ -164,5 +184,9 @@ The initialization logic will create the editor array used to access the methods
   - **fix**  
     Object. Object to assist auto fixing.
 
+**[back to top](#table-of-contents)**
+
 ## License
 [MIT](https://github.com/fofxsoft/code-editor/blob/master/LICENSE.md)
+
+**[back to top](#table-of-contents)**
