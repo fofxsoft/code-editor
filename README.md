@@ -23,17 +23,17 @@ or
 ```
 
 ## Attributes
-- id
+- id  
   Required. Defines the id of the code editor container, and defines access key.
   > Without an id, you will not be able to access the edited code of linter messages.
 
-- name
+- name  
   Optional. Sets the name of the code editor container.
   > Adding this will NOT append the edited code to a POST request. You must use the getCode() method.
 
-- language
-  Optional. This is required when you are setting the code inline or with the setCode() method. If the language is not set it will attempt to find the language from the defined url. If the language can not be determined the language is set to text.
-
+- language  
+  Optional. This is required when you are setting the code inline or with the setCode() method. If the language is not set it will attempt to find the language from the defined url. If the language can not be determined the language is set to text.  
+  &nbsp;  
   Available languages.
   - javascript
   - typescript
@@ -49,75 +49,75 @@ or
   - vb
   - csharp
 
-- url
+- url  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
 
-- class
+- class  
   Optional. Used to set the class name(s) for the code editor container.
 
-- style
+- style  
   Optional. Used to define css style for the code editor container.
 
-- value
+- value  
   Optional. This is only available on the editor type input field. This will populate the contents of the editor.
 
-- innerText
+- innerText  
   Optional. This is only available for the editor tag. The innerText will populate the editor
 
 ## Methods
 The initialization logic will create the editor array used to access the methods.
 
-- getCode()
+- getCode()  
   Returns a string. This will fetch the current code in the editor.  
-    &nbsp;  
-    ```javascript
-    const jsEditor = editor["skywalker"];
-    const code = jsEditor.getCode();
-    ```
+  &nbsp;  
+  ```javascript
+  const jsEditor = editor["skywalker"];
+  const code = jsEditor.getCode();
+  ```
 
-- setCode()
+- setCode()  
   This allows you to set the code in the editor.  
-    &nbsp;  
-    ```javascript
-    const jsEditor = editor["skywalker"];
+  &nbsp;  
+  ```javascript
+  const jsEditor = editor["skywalker"];
 
-    jsEditor.setCode(const jedi = "light side");
-    ```
+  jsEditor.setCode(const jedi = "light side");
+  ```
 
-- setCode()
+- setCode()  
   Returns an array of objects. This allows you to set the code in the editor.  
-    &nbsp;  
-    ```javascript
-    const jsEditor = editor["skywalker"];
-    const errors = jsEditor.getErrors();
-    ```
+  &nbsp;  
+  ```javascript
+  const jsEditor = editor["skywalker"];
+  const errors = jsEditor.getErrors();
+  ```
 
   Each message consists of some or all of these parameters.
-  - ruleId
+  - ruleId  
     String. Name of the ESLint rule.
 
-  - severity
+  - severity  
     Integer. Level of the error.
 
-  - message
+  - message  
     String. Friendly error message.
 
-  - line
+  - line  
     Integer. Line where the error first starts.
 
-  - column
+  - column  
     Integer. Column where the error starts.
 
-  - endLine
+  - endLine  
     Integer. Line where the error ends.
 
-  - endColumn
+  - endColumn  
     Integer. Column where the error ends.
 
-  - nodeType
+  - nodeType  
     String. Type of the object where the error occurred.
 
-  - fix
+  - fix  
     Object. Object to assist auto fixing.
 
 ## License
