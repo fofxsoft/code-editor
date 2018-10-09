@@ -111,6 +111,10 @@ or
   - vb
   - csharp
 
+- **src**  
+  This is the path to the build/editor folder. This is the place where you copied this folder to.
+  > Typically you set the src to the folder and not the index.html, however if your server is not setup to use index.html as the default you will need to set this to the full path with the folder and file.
+
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
   > When using a relative URL, the base is set to the context of the build/editor filder, not the folder you are calling this from.
