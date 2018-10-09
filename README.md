@@ -113,6 +113,7 @@ or
 
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
+  > When using a relative URL, the base is set to the context of the build/editor filder, not the folder you are calling this from.
 
 - **class**  
   Optional. Used to set the class name(s) for the code editor container.
