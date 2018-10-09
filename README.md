@@ -42,6 +42,9 @@ $ npm run build
 
 > The editor build process will copy over the build files to the build/editor folder. You should now have fresh files in the build folder.
 
+## Rules
+[JavaScript Rules](https://github.com/fofxsoft/code-editor/blob/master/ESLINT.md)
+
 ## Installing
 First copy the build/editor folder to your application. Then include the following in your HTML.
 
@@ -162,4 +165,4 @@ The initialization logic will create the editor array used to access the methods
     Object. Object to assist auto fixing.
 
 ## License
-[MIT](https://github.com/fofxsoft/code-editor/blob/master/LICENSE)
+[MIT](https://github.com/fofxsoft/code-editor/blob/master/LICENSE.md)
