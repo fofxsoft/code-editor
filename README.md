@@ -112,7 +112,7 @@ or
   - csharp
 
 - **src**  
-  This is the path to the build/editor folder. This is the place where you copied this folder to.
+  Required. This is the path to the build/editor folder. This is the place where you copied this folder to.
   > Typically you set the src to the folder and not the index.html, however if your server is not setup to use index.html as the default you will need to set this to the full path with the folder and file.
 
 - **url**  
