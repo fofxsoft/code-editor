@@ -153,7 +153,7 @@ The initialization logic will create the editor array used to access the methods
   jsEditor.setCode(const jedi = "light side");
   ```
 
-- **setCode()**  
+- **getErrors()**  
   Returns an array of objects. This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
