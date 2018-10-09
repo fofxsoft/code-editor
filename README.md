@@ -23,15 +23,15 @@ or
 ```
 
 ## Attributes
-- id  
+- **id**  
   Required. Defines the id of the code editor container, and defines access key.
   > Without an id, you will not be able to access the edited code of linter messages.
 
-- name  
+- **name**  
   Optional. Sets the name of the code editor container.
   > Adding this will NOT append the edited code to a POST request. You must use the getCode() method.
 
-- language  
+- **language**  
   Optional. This is required when you are setting the code inline or with the setCode() method. If the language is not set it will attempt to find the language from the defined url. If the language can not be determined the language is set to text.  
   &nbsp;  
   Available languages.
@@ -49,19 +49,19 @@ or
   - vb
   - csharp
 
-- url  
+- **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
 
-- class  
+- **class**  
   Optional. Used to set the class name(s) for the code editor container.
 
-- style  
+- **style**  
   Optional. Used to define css style for the code editor container.
 
-- value  
+- **value**  
   Optional. This is only available on the editor type input field. This will populate the contents of the editor.
 
-- innerText  
+- **innerText**  
   Optional. This is only available for the editor tag. The innerText will populate the editor
 
 ## Methods
