@@ -12,6 +12,10 @@
             "objectLiteralDuplicateProperties": false
         }
     },
+    "globals": {
+        "EWS": true,
+        "ECP": false
+    },
     "rules": {
         "strict": "off",
         "accessor-pairs": "off",
