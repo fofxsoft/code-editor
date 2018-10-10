@@ -1,10 +1,10 @@
 {
-    "name": "code",
+    "name": "editor",
     "version": "0.1.0",
     "private": true,
     "scripts": {
         "build": "run-s build:*",
-        "build:monaco": "node ./scripts/dependencies.js",
+        "build:dependencies": "node ./scripts/dependencies.js",
         "build:editor": "vue-cli-service build",
         "build:deploy": "node ./scripts/deploy.js"
     },
