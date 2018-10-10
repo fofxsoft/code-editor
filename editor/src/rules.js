@@ -742,7 +742,7 @@ export default {
     // https://eslint.org/docs/rules/max-len
     "max-len": [
         "error",
-        100,
+        200,
         2,
         {
             ignoreUrls: true,
