@@ -1,5 +1,5 @@
 export default {
-    strict: "error",
+    strict: "off",
 
     // enforces getter/setter pairs in objects
     "accessor-pairs": "off",
@@ -1236,7 +1236,7 @@ export default {
     // disallow use of variables before they are defined
     "no-use-before-define": [
         "error",
-        { functions: true, classes: true, variables: true },
+        { functions: false, classes: true, variables: true },
     ],
 
     // enforces no braces where they can be omitted

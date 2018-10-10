@@ -13,7 +13,7 @@
         }
     },
     "rules": {
-        "strict": "error",
+        "strict": "off",
         "accessor-pairs": "off",
         "array-callback-return": [
             "error",
@@ -1021,7 +1021,7 @@
         "no-use-before-define": [
             "error",
             {
-                "functions": true,
+                "functions": false,
                 "classes": true,
                 "variables": true
             }
