@@ -49,13 +49,13 @@ First copy the build/editor folder to your application. Then include the followi
 To include a code editor on your page, simply add the tag.
 
 ```html
-<input type="editor" id="skywalker" name="skywalker" src="editor/index.html" language="javascript" value="">
+<input type="editor" id="skywalker" name="skywalker" lib="/lib/code-editor/" language="javascript" value="">
 ```
 
 or
 
 ```html
-<editor id="skywalker" name="skywalker" src="editor/index.html" language="javascript"></editor>
+<editor id="skywalker" name="skywalker" lib="/lib/code-editor/" language="javascript"></editor>
 ```
 
 **[back to top](#table-of-contents)**
@@ -87,9 +87,8 @@ or
   - vb
   - csharp
 
-- **src**  
-  Required. This is the path to the build/editor folder. This is the place where you copied this folder to.
-  > Typically you set the src to the folder and not the index.html, however if your server is not setup to use index.html as the default you will need to set this to the full path with the folder and file.
+- **lib**  
+  Required. This is the path to the build folder. This is the place where you copied the contents of this folder to.
 
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
