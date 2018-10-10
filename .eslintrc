@@ -14,7 +14,8 @@
     },
     "globals": {
         "EWS": true,
-        "ECP": false
+        "ECP": false,
+        "EC_Fmt": false
     },
     "rules": {
         "strict": "off",
@@ -533,7 +534,7 @@
             }
         ],
         "linebreak-style": [
-            "error",
+            "off",
             "unix"
         ],
         "lines-between-class-members": [
