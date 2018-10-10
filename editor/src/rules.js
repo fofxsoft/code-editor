@@ -353,7 +353,7 @@ export default {
     "require-unicode-regexp": "off",
 
     // requires to declare all vars on top of their containing scope
-    "vars-on-top": "error",
+    "vars-on-top": "off",
 
     // require immediate function invocation to be wrapped in parentheses
     // https://eslint.org/docs/rules/wrap-iife.html
