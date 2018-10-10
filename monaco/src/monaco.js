@@ -24,9 +24,9 @@ import "monaco-editor/esm/vs/editor/contrib/wordOperations/wordOperations";
 import "monaco-editor/esm/vs/editor/standalone/browser/accessibilityHelp/accessibilityHelp";
 import "monaco-editor/esm/vs/editor/standalone/browser/inspectTokens/inspectTokens";
 import "monaco-editor/esm/vs/editor/standalone/browser/iPadShowKeyboard/iPadShowKeyboard";
-import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickOutline.js";
-import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/gotoLine.js";
-import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickCommand.js";
+import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickOutline";
+import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/gotoLine";
+import "monaco-editor/esm/vs/editor/standalone/browser/quickOpen/quickCommand";
 
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 
@@ -43,17 +43,17 @@ import "monaco-editor/esm/vs/basic-languages/xml/xml.contribution";
 import "monaco-editor/esm/vs/basic-languages/csharp/csharp.contribution";
 import "monaco-editor/esm/vs/basic-languages/vb/vb.contribution";
 
-import * as editorWorker from "monaco-editor/esm/vs/editor/editor.worker.js";
-import * as cssWorker from "monaco-editor/esm/vs/language/css/css.worker";
-import * as htmlWorker from "monaco-editor/esm/vs/language/html/html.worker";
-import * as jsonWorker from "monaco-editor/esm/vs/language/json/json.worker";
-import * as typescriptWorker from "monaco-editor/esm/vs/language/typescript/ts.worker.js";
+import editorWorker from "monaco-editor/esm/vs/editor/editor.worker";
+import cssWorker from "monaco-editor/esm/vs/language/css/css.worker";
+import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker";
+import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker";
+import tsWorker from "monaco-editor/esm/vs/language/typescript/ts.worker";
 
 const workerURL = {
     css: cssWorker,
     html: htmlWorker,
     json: jsonWorker,
-    javascript: typescriptWorker,
+    javascript: tsWorker,
 
     get typescript() {
         return this.javascript;
