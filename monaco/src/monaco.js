@@ -43,17 +43,18 @@ import "monaco-editor/esm/vs/basic-languages/xml/xml.contribution";
 import "monaco-editor/esm/vs/basic-languages/csharp/csharp.contribution";
 import "monaco-editor/esm/vs/basic-languages/vb/vb.contribution";
 
-import editorWorker from "monaco-editor/esm/vs/editor/editor.worker.js";
-import cssWorker from "monaco-editor/esm/vs/language/css/css.worker";
-import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker";
-import jsonWorker from "monaco-editor/esm/vs/language/json/json.worker";
-import typescriptWorker from "monaco-editor/esm/vs/language/typescript/ts.worker.js";
+import * as editorWorker from "monaco-editor/esm/vs/editor/editor.worker.js";
+import * as cssWorker from "monaco-editor/esm/vs/language/css/css.worker";
+import * as htmlWorker from "monaco-editor/esm/vs/language/html/html.worker";
+import * as jsonWorker from "monaco-editor/esm/vs/language/json/json.worker";
+import * as typescriptWorker from "monaco-editor/esm/vs/language/typescript/ts.worker.js";
 
 const workerURL = {
     css: cssWorker,
     html: htmlWorker,
     json: jsonWorker,
     javascript: typescriptWorker,
+
     get typescript() {
         return this.javascript;
     },
