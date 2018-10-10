@@ -14,41 +14,19 @@ Inline code editor with ESLint based on VS Code.
 ## Building
 You will need the latest version of [Node](https://nodejs.org/en/download/) installed. The node install will include npm.
 
-**Linter**
+**Dependencies**
 
-In the terminal navigate to the linter folder.
+From the project filder run.
 ```
-$ cd code-editor/linter/
-```
-
-Install the dependencies.
-```
-$ npm install
+$ npm run install
 ```
 
-Then build linter.
+Then build the project.
 ```
 $ npm run build
 ```
 
-**Editor**
-
-In the terminal navigate to the editor folder.
-```
-$ cd code-editor/editor
-```
-
-Install the dependencies.
-```
-$ npm install
-```
-
-Then build the editor.
-```
-$ npm run build
-```
-
-> The editor build process will copy over the build files to the build/editor folder. You should now have fresh files in the build folder.
+> The build process will deploys to the build folder.
 
 **[back to top](#table-of-contents)**
 
