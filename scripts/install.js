@@ -4,12 +4,12 @@ const { spawnSync } = require("child_process");
 
 spawnSync("npm", ["install"], {
     env: process.env,
-    cwd: "./linter/",
+    cwd: "./src/linter/",
     stdio: "inherit",
 });
 
 spawnSync("npm", ["install"], {
     env: process.env,
-    cwd: "./editor/",
+    cwd: "./src/editor/",
     stdio: "inherit",
 });

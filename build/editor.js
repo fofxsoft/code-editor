@@ -23,8 +23,14 @@ function Editor(ele, id, value) {
         url += `url=${ele.getAttribute("url")}`;
     }
 
+    let lib = ele.getAttribute("lib");
+
+    if (!lib.endsWith("/")) {
+        lib += "/";
+    }
+
     this.frame = document.createElement("div");
-    this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${ele.getAttribute("src")}${url}"></iframe>`;
+    this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${lib}editor.html${url}"></iframe>`;
     this.frame = this.frame.firstChild;
 
     if (value && value !== "") {
