@@ -14,26 +14,19 @@ Inline code editor with ESLint based on VS Code.
 ## Building
 You will need the latest version of [Node](https://nodejs.org/en/download/) installed. The node install will include npm.
 
-**Dependencies**
+**Linter**
 
-In the terminal navigate to the project folder.
+In the terminal navigate to the monaco folder.
 ```
-$ cd code-editor
+$ cd code-editor/linter/
 ```
 
-Then install the dependencies.
+Install the dependencies.
 ```
 $ npm install
 ```
 
-**Monaco**
-
-In the terminal navigate to the monaco folder.
-```
-$ cd code-editor/monaco/
-```
-
-Then build monaco.
+Then build linter.
 ```
 $ npm run build
 ```
@@ -43,6 +36,11 @@ $ npm run build
 In the terminal navigate to the editor folder.
 ```
 $ cd code-editor/editor
+```
+
+Install the dependencies.
+```
+$ npm install
 ```
 
 Then build the editor.
