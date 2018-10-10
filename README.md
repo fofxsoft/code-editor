@@ -16,7 +16,7 @@ You will need the latest version of [Node](https://nodejs.org/en/download/) inst
 
 **Linter**
 
-In the terminal navigate to the monaco folder.
+In the terminal navigate to the linter folder.
 ```
 $ cd code-editor/linter/
 ```
