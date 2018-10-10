@@ -16,7 +16,7 @@ You will need the latest version of [Node](https://nodejs.org/en/download/) inst
 
 **Dependencies**
 
-From the project filder run.
+From the project folder run.
 ```
 $ npm run install
 ```
