@@ -26,7 +26,7 @@ Then build the project.
 $ npm run build
 ```
 
-> The build process will deploys to the build folder.
+> The build process will deploy to the build folder.
 
 **[back to top](#table-of-contents)**
 
