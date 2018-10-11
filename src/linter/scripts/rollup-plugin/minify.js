@@ -5,5 +5,5 @@ export default () => ({
 
     transformBundle(source) {
         return uglify.minify(source).code;
-    }
+    },
 });

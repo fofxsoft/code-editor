@@ -27,5 +27,5 @@ export function html_beautify(html_source, options) {
         }
 
         return null;
-    }
+    },
 });

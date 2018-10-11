@@ -12,7 +12,7 @@ class Editor {
     constructor(ele, id, value) {
         let url = "";
 
-        if (ele.getAttribute("language") && ele.getAttribute("language") !== "") {
+        if (ele.hasAttribute("language") && ele.getAttribute("language") !== "") {
             if (url !== "") {
                 url += "&";
             } else {
@@ -22,7 +22,17 @@ class Editor {
             url += `lang=${ele.getAttribute("language")}`;
         }
 
-        if (ele.getAttribute("url") && ele.getAttribute("url") !== "") {
+        if (ele.hasAttribute("dark") && ele.getAttribute("dark") !== "false") {
+            if (url !== "") {
+                url += "&";
+            } else {
+                url += "?";
+            }
+
+            url += "theme=dark";
+        }
+
+        if (ele.hasAttribute("url") && ele.getAttribute("url") !== "") {
             if (url !== "") {
                 url += "&";
             } else {
@@ -57,15 +67,17 @@ class Editor {
                 this.editor.code = value;
             }
 
-            this.frame.contentWindow.addEventListener("input", () => {
-                ele.dispatchEvent(this.events.input);
-            });
+            setTimeout(() => {
+                this.frame.contentWindow.addEventListener("input", () => {
+                    ele.dispatchEvent(this.events.input);
+                });
 
-            this.frame.contentWindow.addEventListener("change", () => {
-                ele.dispatchEvent(this.events.change);
-            });
+                this.frame.contentWindow.addEventListener("change", () => {
+                    ele.dispatchEvent(this.events.change);
+                });
 
-            ele.dispatchEvent(this.events.ready);
+                ele.dispatchEvent(this.events.ready);
+            }, 500);
         });
 
         ele.parentNode.insertBefore(this.frame, ele);
@@ -104,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const id = (fields[key].id || Date.now());
 
             editors.add(id, new Editor(fields[key], id, fields[key].value));
+            fields[key].value = "";
         }
     });
 
@@ -113,5 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = (elements[key].id || Date.now());
 
         editors.add(id, new Editor(elements[key], id, elements[key].innerText));
+        fields[key].innerText = "";
     });
 });

@@ -2,7 +2,8 @@
     "env": {
         "es6": true,
         "browser": true,
-        "jquery": true
+        "jquery": true,
+        "node": true
     },
     "parserOptions": {
         "ecmaVersion": 2018,
@@ -13,9 +14,28 @@
         }
     },
     "globals": {
-        "EWS": true,
+        "ArrayBuffer": false,
+        "DataView": false,
+        "EC_Fmt": false,
         "ECP": false,
-        "EC_Fmt": false
+        "EWS": false,
+        "Float32Array": false,
+        "Float64Array": false,
+        "Int16Array": false,
+        "Int32Array": false,
+        "Int8Array": false,
+        "Map": false,
+        "Promise": false,
+        "Proxy": false,
+        "Reflect": false,
+        "Set": false,
+        "Symbol": false,
+        "Uint16Array": false,
+        "Uint32Array": false,
+        "Uint8Array": false,
+        "Uint8ClampedArray": false,
+        "WeakMap": false,
+        "WeakSet": false
     },
     "rules": {
         "strict": "off",

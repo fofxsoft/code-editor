@@ -1,6 +1,6 @@
 <template>
     <div id="monaco-container">
-        <monaco class="monaco" :language="lang" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
+        <monaco class="monaco" :dark="dark ? true : false" :language="lang" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
     </div>
 </template>
 
@@ -13,7 +13,7 @@
 
     export default {
         name: "editor",
-        props: ["url", "lang", "errors"],
+        props: ["url", "lang", "dark"],
         components: {
             monaco
         },
@@ -78,7 +78,7 @@
                 fix() {
                     if (me.fixedCode && me.fixedCode !== me.code) {
                         me.code = me.fixedCode;
-                        me.errors = me.fixedCode;
+                        me.errors = me.fixedErrors;
                     }
                 },
             };
@@ -109,9 +109,5 @@
     #monaco-container .monaco {
         height: 100%;
         box-sizing: border-box;
-    }
-
-    #monaco-container .minimap {
-       box-shadow: -1px 0 0 0 #eee;
     }
 </style>

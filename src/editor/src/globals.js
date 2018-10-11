@@ -1,6 +1,9 @@
 export default {
     ArrayBuffer: false,
     DataView: false,
+    EC_Fmt: false,
+    ECP: false,
+    EWS: false,
     Float32Array: false,
     Float64Array: false,
     Int16Array: false,

@@ -20,6 +20,7 @@ const router = new Router({
         props: route => ({
             url: route.query.url,
             lang: language.parse(route.query.lang, route.query.url),
+            dark: route.query.theme === "dark",
         }),
     }],
 });

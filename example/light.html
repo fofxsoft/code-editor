@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="icon" href="favicon.ico">
+    <title>Code Editor</title>
+
+    <link href="../build/editor.css" rel="stylesheet">
+    <script src="../build/editor.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+            font-size: 16pt;
+            color: #545454;
+            overflow: hidden;
+        }
+
+        header {
+            width: 100%;
+            height: 57px;
+            background: #f26651;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+        }
+
+        header .logo {
+            display: inline-block;
+            height: 27px;
+            margin: 15px 5px 15px 15px;
+        }
+
+        header .title {
+            position: absolute;
+            top: 0;
+            left: 57px;
+            display: inline-block;
+            height: 57px;
+            font-size: 1.2rem;
+            color: #fff;
+            box-sizing: border-box;
+            line-height: 57px;
+        }
+
+        header .title a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header .github {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            display: inline-block;
+            height: 57px;
+            font-size: 0.8rem;
+            color: #fff;
+            box-sizing: border-box;
+            line-height: 57px;
+        }
+
+        header .github a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        article {
+            border-top: 57px transparent solid;
+            box-sizing: border-box;
+            height: 100%;
+            text-align: center;
+        }
+
+        .demo {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 47px 0 75px;
+        }
+
+        #save {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            height: 16px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        #save:hover {
+            opacity: 1;
+        }
+
+        #fix {
+            position: absolute;
+            height: 16px;
+            top: 8px;
+            left: 38px;
+            margin: 4px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        #fix:hover {
+            opacity: 1;
+        }
+
+        #menu .url {
+            width: 100%;
+            box-sizing: border-box;
+            height: 26px;
+            margin: 7px 0 7px 0;
+        }
+
+        #menu input[name=url] {
+            width: 100%;
+            height: 28px;
+            padding: 5px 7px 5px 7px;
+            color: #fff;
+            background: #0b8fe8;
+            border: 0 none;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 12pt;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+        }
+
+        #menu input:focus {
+            outline: 0;
+        }
+
+        #menu form ::placeholder {
+            color: #fff;
+            opacity: 0.4;
+        }
+
+        #main {
+            border-top: 40px #007acc solid;
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjc4LjkgNTExLjVsLTYxLTE3LjdjLTYuNC0xLjgtMTAtOC41LTguMi0xNC45TDM0Ni4yIDguN2MxLjgtNi40IDguNS0xMCAxNC45LTguMmw2MSAxNy43YzYuNCAxLjggMTAgOC41IDguMiAxNC45TDI5My44IDUwMy4zYy0xLjkgNi40LTguNSAxMC4xLTE0LjkgOC4yem0tMTE0LTExMi4ybDQzLjUtNDYuNGM0LjYtNC45IDQuMy0xMi43LS44LTE3LjJMMTE3IDI1Nmw5MC42LTc5LjdjNS4xLTQuNSA1LjUtMTIuMy44LTE3LjJsLTQzLjUtNDYuNGMtNC41LTQuOC0xMi4xLTUuMS0xNy0uNUwzLjggMjQ3LjJjLTUuMSA0LjctNS4xIDEyLjggMCAxNy41bDE0NC4xIDEzNS4xYzQuOSA0LjYgMTIuNSA0LjQgMTctLjV6bTMyNy4yLjZsMTQ0LjEtMTM1LjFjNS4xLTQuNyA1LjEtMTIuOCAwLTE3LjVMNDkyLjEgMTEyLjFjLTQuOC00LjUtMTIuNC00LjMtMTcgLjVMNDMxLjYgMTU5Yy00LjYgNC45LTQuMyAxMi43LjggMTcuMkw1MjMgMjU2bC05MC42IDc5LjdjLTUuMSA0LjUtNS41IDEyLjMtLjggMTcuMmw0My41IDQ2LjRjNC41IDQuOSAxMi4xIDUuMSAxNyAuNnoiLz48L3N2Zz4=">
+        <div class="title"><a href="./">Code Editor</a></div>
+        <div class="github"><a href="https://github.com/fofxsoft/code-editor">Repository</a></div>
+    </header>
+
+    <article>
+        <div class="demo">
+            <input type="editor" name="main" id="main" language="mysql" lib="../build/" url="https://raw.githubusercontent.com/fofxsoft/code-editor/master/example/docs/example-sql.sql">
+            <div id="menu">
+                <img id="save" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDMzLjk0MSAxMjkuOTQxbC04My44ODItODMuODgyQTQ4IDQ4IDAgMCAwIDMxNi4xMTggMzJINDhDMjEuNDkgMzIgMCA1My40OSAwIDgwdjM1MmMwIDI2LjUxIDIxLjQ5IDQ4IDQ4IDQ4aDM1MmMyNi41MSAwIDQ4LTIxLjQ5IDQ4LTQ4VjE2My44ODJhNDggNDggMCAwIDAtMTQuMDU5LTMzLjk0MXpNMjI0IDQxNmMtMzUuMzQ2IDAtNjQtMjguNjU0LTY0LTY0IDAtMzUuMzQ2IDI4LjY1NC02NCA2NC02NHM2NCAyOC42NTQgNjQgNjRjMCAzNS4zNDYtMjguNjU0IDY0LTY0IDY0em05Ni0zMDQuNTJWMjEyYzAgNi42MjctNS4zNzMgMTItMTIgMTJINzZjLTYuNjI3IDAtMTItNS4zNzMtMTItMTJWMTA4YzAtNi42MjcgNS4zNzMtMTIgMTItMTJoMjI4LjUyYzMuMTgzIDAgNi4yMzUgMS4yNjQgOC40ODUgMy41MTVsMy40OCAzLjQ4QTExLjk5NiAxMS45OTYgMCAwIDEgMzIwIDExMS40OHoiLz48L3N2Zz4=">
+                <img id="fix" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjc4LjkgNTExLjVsLTYxLTE3LjdjLTYuNC0xLjgtMTAtOC41LTguMi0xNC45TDM0Ni4yIDguN2MxLjgtNi40IDguNS0xMCAxNC45LTguMmw2MSAxNy43YzYuNCAxLjggMTAgOC41IDguMiAxNC45TDI5My44IDUwMy4zYy0xLjkgNi40LTguNSAxMC4xLTE0LjkgOC4yem0tMTE0LTExMi4ybDQzLjUtNDYuNGM0LjYtNC45IDQuMy0xMi43LS44LTE3LjJMMTE3IDI1Nmw5MC42LTc5LjdjNS4xLTQuNSA1LjUtMTIuMy44LTE3LjJsLTQzLjUtNDYuNGMtNC41LTQuOC0xMi4xLTUuMS0xNy0uNUwzLjggMjQ3LjJjLTUuMSA0LjctNS4xIDEyLjggMCAxNy41bDE0NC4xIDEzNS4xYzQuOSA0LjYgMTIuNSA0LjQgMTctLjV6bTMyNy4yLjZsMTQ0LjEtMTM1LjFjNS4xLTQuNyA1LjEtMTIuOCAwLTE3LjVMNDkyLjEgMTEyLjFjLTQuOC00LjUtMTIuNC00LjMtMTcgLjVMNDMxLjYgMTU5Yy00LjYgNC45LTQuMyAxMi43LjggMTcuMkw1MjMgMjU2bC05MC42IDc5LjdjLTUuMSA0LjUtNS41IDEyLjMtLjggMTcuMmw0My41IDQ2LjRjNC41IDQuOSAxMi4xIDUuMSAxNyAuNnoiLz48L3N2Zz4=">
+                <div class="url">
+                    <form autocomplete="off" action="../build/editor.html" method="GET" target="main">
+                        <input autocomplete="off" type="text" name="url" placeholder="File URL" value="https://raw.githubusercontent.com/fofxsoft/code-editor/master/example/docs/example-sql.sql">
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </article>
+
+    <script>
+        document.getElementById("save").addEventListener("click", () => {
+            const editor = editors.get("main");
+
+            console.clear();
+            console.log(editor.code);
+
+            Object.keys(editor.errors).forEach((key) => {
+                console.log(`${editor.errors[key].message} [${editor.errors[key].line}:${editor.errors[key].column}]`);
+            });
+        });
+
+        document.getElementById("fix").addEventListener("click", () => {
+            const editor = editors.get("main");
+
+            console.clear();
+
+            if (editor.errors.length > 0) {
+                editor.fix()
+                console.log("Fix Applied");
+            }
+
+            console.log(editor.fix().code);
+
+            Object.keys(editor.errors).forEach((key) => {
+                console.log(`${editor.errors[key].message} [${editor.errors[key].line}:${editor.errors[key].column}]`);
+            });
+        });
+
+        document.getElementById("main").addEventListener("ready", () => {
+            editors.get("main").focus();
+        });
+    </script>
+</body>
+
+</html>

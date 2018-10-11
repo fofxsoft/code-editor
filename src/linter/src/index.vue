@@ -528,12 +528,6 @@
         color: #1e1e1e;
     }
 
-    .eslint-editor-dark .eslint-editor-actions,
-    .eslint-editor-dark .eslint-editor-actions button {
-        background-color: #1e1e1e;
-        color: #d4d4d4;
-    }
-
     .eslint-editor-actions > * {
         display: inline-block;
         box-sizing: border-box;
@@ -592,7 +586,15 @@
         background: #f4f4f4;
     }
 
+    .eslint-editor-dark .current-line {
+        background: #363636;
+    }
+
     .minimap {
-       box-shadow: -1px 0 0 0 #e8e8e8;
+       box-shadow: -1px 0 0 0 #eee;
+    }
+
+    .eslint-editor-dark .minimap {
+       box-shadow: -1px 0 0 0 #383838;
     }
 </style>

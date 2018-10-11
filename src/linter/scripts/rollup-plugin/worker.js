@@ -37,14 +37,14 @@ export default () => ({
                         this.warn(w);
                     }
                 },
-                plugins: [minify(), modBeautifyHtml()]
+                plugins: [minify(), modBeautifyHtml()],
             });
 
             const {
-                code
+                code,
             } = await bundle.generate({
                 format: "iife",
-                name: path.basename(id, ".js").replace(/\./g, "")
+                name: path.basename(id, ".js").replace(/\./g, ""),
             });
 
             const content = `export default URL.createObjectURL(new Blob([${JSON.stringify(code)}], { type: "text/javascript" }))`;
@@ -54,9 +54,9 @@ export default () => ({
 
             return content;
         } catch (error) {
-            console.error(path.basename(id), error);
+            console.error(path.basename(id), error); /* eslint-disable-line no-console */
 
             throw error;
         }
-    }
+    },
 });

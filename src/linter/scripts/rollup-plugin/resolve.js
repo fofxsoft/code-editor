@@ -9,9 +9,9 @@ export default () => ({
         }
 
         const resultPath = require.resolve(id, {
-            paths: [importerPath || path.dirname(__dirname)]
+            paths: [importerPath || path.dirname(__dirname)],
         });
 
         return resultPath;
-    }
+    },
 });
