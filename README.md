@@ -197,11 +197,35 @@ The initialization logic will create the editors object used to access the metho
 Custom events applied to the editor tag.
 
 - **ready**  
-  This is called when the editor is loaded and ready to accept commands.
+  This event is dispached when the editor is loaded and ready to accept commands.
   &nbsp;  
   ```javascript
   document.getElementById("skywalker").addEventListener("ready", () => {
       editors.get("skywalker").focus();
+  });
+  ```
+
+- **input**  
+  This event is dispached on every edit.
+  &nbsp;  
+  ```javascript
+  document.getElementById("skywalker").addEventListener("input", () => {
+      setIsDirty(true);
+  });
+  ```
+
+- **change**  
+  This event is dispached when there is a change in the linter, including messages.
+  &nbsp;  
+  ```javascript
+  document.getElementById("skywalker").addEventListener("change", () => {
+      const editor = editors.get("skywalker");
+
+      if (editor.errors.length > 0) {
+          document.getElementById("button").disabled = false;
+      } else {
+          document.getElementById("button").disabled = true;
+      };
   });
   ```
 
