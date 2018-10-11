@@ -9,6 +9,7 @@ Inline code editor with ESLint based on VS Code. [Demo](https://fofxsoft.github.
   1. [Usage](#usage)
   1. [Attributes](#attributes)
   1. [Methods](#methods)
+  1. [Events](#events)
   1. [License](#license)
 
 ## Building
@@ -26,7 +27,7 @@ Then build the project.
 $ npm run build
 ```
 
-> The build process will deploys to the build folder.
+> The build process will deploy to the build folder.
 
 **[back to top](#table-of-contents)**
 
@@ -36,11 +37,11 @@ $ npm run build
 **[back to top](#table-of-contents)**
 
 ## Installing
-First copy the build/editor folder to your application. Then include the following in your HTML.
+First copy the contents of the build folder to your application. Then include the following in your HTML.
 
 ```html
-<link href="editor/editor.css" rel="stylesheet">
-<script src="editor/editor.js"></script>
+<link href="/lib/code-editor/editor.css" rel="stylesheet">
+<script src="/lib/code-editor/editor.js"></script>
 ```
 
 **[back to top](#table-of-contents)**
@@ -109,31 +110,57 @@ or
 **[back to top](#table-of-contents)**
 
 ## Methods
-The initialization logic will create the editor array used to access the methods.
+The initialization logic will create the editors object used to access the methods.
 
-- **getCode()**  
-  Returns a string. This will fetch the current code in the editor.  
+- **get(id)**  
+  This is used to get the editor object.
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
-  const code = jsEditor.getCode();
+  const editor = editors.get("skywalker");
   ```
 
-- **setCode()**  
-  This allows you to set the code in the editor.  
+- **editor.code**  
+  Returns a string. This will fetch the current code in the editor.
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
-
-  jsEditor.setCode(const jedi = "light side");
+  const editor = editors.get("skywalker");
+  const code = editor.code;
   ```
 
-- **getErrors()**  
-  Returns an array of objects. This allows you to set the code in the editor.  
+- **editor.code(value)**  
+  This allows you to set the code in the editor.
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
-  const errors = jsEditor.getErrors();
+  const editor = editors.get("skywalker");
+
+  editor.code = "const jedi = \"light side\"";
+  ```
+
+- **editor.focus()**  
+  This will focus the editor.
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+
+  editor.focus();
+  ```
+
+
+- **editor.fix()**  
+  This will apply any eslint fixable errors automatically.
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+
+  editor.fix();
+  ```
+
+- **editor.errors**  
+  Returns an array of eslint error messages.
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+  const errors = editor.errors;
   ```
 
   Each message consists of some or all of these parameters.
@@ -163,6 +190,20 @@ The initialization logic will create the editor array used to access the methods
 
   - **fix**  
     Object. Object to assist auto fixing.
+
+**[back to top](#table-of-contents)**
+
+## Events
+Custom events applied to the editor tag.
+
+- **ready**  
+  This is called when the editor is loaded and ready to accept commands.
+  &nbsp;  
+  ```javascript
+  document.getElementById("skywalker").addEventListener("ready", () => {
+      editors.get("skywalker").focus();
+  });
+  ```
 
 **[back to top](#table-of-contents)**
 
