@@ -43,7 +43,12 @@ class Editor {
         this.frame = this.frame.firstChild;
 
         this.editor = null;
-        this.ready = new Event("ready");
+
+        this.events = {
+            ready: new Event("ready"),
+            input: new Event("input"),
+            change: new Event("change"),
+        };
 
         this.frame.addEventListener("load", () => {
             this.editor = this.frame.contentWindow.editor;
@@ -52,7 +57,15 @@ class Editor {
                 this.editor.code = value;
             }
 
-            ele.dispatchEvent(this.ready);
+            this.frame.contentWindow.addEventListener("input", () => {
+                ele.dispatchEvent(this.events.input);
+            });
+
+            this.frame.contentWindow.addEventListener("change", () => {
+                ele.dispatchEvent(this.events.change);
+            });
+
+            ele.dispatchEvent(this.events.ready);
         });
 
         ele.parentNode.insertBefore(this.frame, ele);
@@ -72,10 +85,14 @@ class Editor {
 
     fix() {
         this.editor.fix();
+
+        return this;
     }
 
     focus() {
         this.frame.contentWindow.focus();
+
+        return this;
     }
 }
 

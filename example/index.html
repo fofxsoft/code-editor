@@ -108,6 +108,7 @@
         document.getElementById("save").addEventListener("click", () => {
             const editor = editors.get("main");
 
+            console.clear();
             console.log(editor.code);
 
             Object.keys(editor.errors).forEach((key) => {
@@ -118,7 +119,11 @@
         document.getElementById("fix").addEventListener("click", () => {
             const editor = editors.get("main");
 
-            console.log(editor.fix().code);
+            console.clear();
+
+            if (changed) {
+                console.log(editor.fix().code);
+            }
 
             Object.keys(editor.errors).forEach((key) => {
                 console.log(`${editor.errors[key].message} [${editor.errors[key].line}:${editor.errors[key].column}]`);

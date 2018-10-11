@@ -1,5 +1,5 @@
 <template>
-    <div class="monaco-container">
+    <div id="monaco-container">
         <monaco class="monaco" :language="lang" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
     </div>
 </template>
@@ -28,11 +28,20 @@
                 fixedCode: null,
                 errors: [],
                 fixedErrors: [],
+                events: {
+                    input: new Event("input"),
+                    change: new Event("change"),
+                },
                 change(payload) {
                     me.errors = payload.messages;
                     me.fixedCode = payload.fixedCode;
                     me.fixedErrors = payload.fixedMessages;
+
+                    window.dispatchEvent(me.events.change);
                 },
+                input() {
+                    window.dispatchEvent(me.events.input);
+                }
             };
         },
 
@@ -88,21 +97,21 @@
 </script>
 
 <style>
-    .monaco-container {
+    #monaco-container {
         height: 100%;
         box-sizing: border-box;
     }
 
-    .monaco-container .model-input {
+    #monaco-container .model-input {
         display: none;
     }
 
-    .monaco {
+    #monaco-container .monaco {
         height: 100%;
         box-sizing: border-box;
     }
 
-    .minimap {
+    #monaco-container .minimap {
        box-shadow: -1px 0 0 0 #eee;
     }
 </style>
