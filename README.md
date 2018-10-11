@@ -109,31 +109,53 @@ or
 **[back to top](#table-of-contents)**
 
 ## Methods
-The initialization logic will create the editor array used to access the methods.
+The initialization logic will create the editors object used to access the methods.
 
-- **getCode()**  
+- **get(id)**  
+  This is used to get the editor object.
+
+- **editor.code**  
   Returns a string. This will fetch the current code in the editor.  
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
-  const code = jsEditor.getCode();
+  const editor = editors.get("skywalker");
+  const code = editor.code;
   ```
 
-- **setCode()**  
+- **editor.code(value)**  
   This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
+  const editor = editors.get("skywalker");
 
-  jsEditor.setCode(const jedi = "light side");
+  editor.code = "const jedi = \"light side\"";
   ```
 
-- **getErrors()**  
+- **editor.focus()**  
+  This will focus the editor.  
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+
+  editor.focus();
+  ```
+
+
+- **editor.fix()**  
+  This will apply any eslint fixable errors automatically.  
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+
+  editor.fix();
+  ```
+
+- **editor.errors**  
   Returns an array of objects. This allows you to set the code in the editor.  
   &nbsp;  
   ```javascript
-  const jsEditor = editor["skywalker"];
-  const errors = jsEditor.getErrors();
+  const editor = editors.get("skywalker");
+  const errors = editor.errors;
   ```
 
   Each message consists of some or all of these parameters.
