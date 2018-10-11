@@ -119,7 +119,7 @@ The initialization logic will create the editors object used to access the metho
   ```
 
 - **editor.code**  
-  Returns a string. This will fetch the current code in the editor.  
+  Returns a string. This will fetch the current code in the editor.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
@@ -127,7 +127,7 @@ The initialization logic will create the editors object used to access the metho
   ```
 
 - **editor.code(value)**  
-  This allows you to set the code in the editor.  
+  This allows you to set the code in the editor.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
@@ -136,7 +136,7 @@ The initialization logic will create the editors object used to access the metho
   ```
 
 - **editor.focus()**  
-  This will focus the editor.  
+  This will focus the editor.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
@@ -146,7 +146,7 @@ The initialization logic will create the editors object used to access the metho
 
 
 - **editor.fix()**  
-  This will apply any eslint fixable errors automatically.  
+  This will apply any eslint fixable errors automatically.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
@@ -155,7 +155,7 @@ The initialization logic will create the editors object used to access the metho
   ```
 
 - **editor.errors**  
-  Returns an array of objects. This allows you to set the code in the editor.  
+  Returns an array of objects. This allows you to set the code in the editor.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
