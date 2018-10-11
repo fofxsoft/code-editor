@@ -1,5 +1,5 @@
 # Code Editor
-Inline code editor with ESLint based on VS Code.
+Inline code editor with ESLint based on VS Code. [Demo](https://fofxsoft.github.io/code-editor/example/)
 
 ## Table of Contents
 
