@@ -113,6 +113,10 @@ The initialization logic will create the editors object used to access the metho
 
 - **get(id)**  
   This is used to get the editor object.
+  &nbsp;  
+  ```javascript
+  const editor = editors.get("skywalker");
+  ```
 
 - **editor.code**  
   Returns a string. This will fetch the current code in the editor.  
