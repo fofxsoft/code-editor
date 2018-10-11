@@ -9,6 +9,7 @@ Inline code editor with ESLint based on VS Code. [Demo](https://fofxsoft.github.
   1. [Usage](#usage)
   1. [Attributes](#attributes)
   1. [Methods](#methods)
+  1. [Events](#events)
   1. [License](#license)
 
 ## Building
@@ -189,6 +190,20 @@ The initialization logic will create the editors object used to access the metho
 
   - **fix**  
     Object. Object to assist auto fixing.
+
+**[back to top](#table-of-contents)**
+
+## Events
+Custom events applied to the editor tag.
+
+- **ready**  
+  This is called when the editor is loaded and ready to accept commands.
+  &nbsp;  
+  ```javascript
+  document.getElementById("skywalker").addEventListener("ready", () => {
+      editors.get("skywalker").focus();
+  });
+  ```
 
 **[back to top](#table-of-contents)**
 
