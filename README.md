@@ -156,7 +156,7 @@ The initialization logic will create the editors object used to access the metho
   ```
 
 - **editor.errors**  
-  Returns an array of objects. This allows you to set the code in the editor.
+  Returns an array of eslint error messages.
   &nbsp;  
   ```javascript
   const editor = editors.get("skywalker");
