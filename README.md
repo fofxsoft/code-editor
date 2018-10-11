@@ -36,7 +36,7 @@ $ npm run build
 **[back to top](#table-of-contents)**
 
 ## Installing
-First copy the build/editor folder to your application. Then include the following in your HTML.
+First copy the contents of the build folder to your application. Then include the following in your HTML.
 
 ```html
 <link href="/lib/code-editor/editor.css" rel="stylesheet">
