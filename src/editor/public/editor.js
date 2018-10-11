@@ -1,71 +1,87 @@
-const editor = {};
+const editors = {
+    items: {},
+    add(id, value) {
+        this.items[id] = value;
+    },
+    get(id) {
+        return this.items[id];
+    },
+};
 
-function Editor(ele, id, value) {
-    let url = "";
+class Editor {
+    constructor(ele, id, value) {
+        let url = "";
 
-    if (ele.getAttribute("language") && ele.getAttribute("language") !== "") {
-        if (url !== "") {
-            url += "&";
-        } else {
-            url += "?";
+        if (ele.getAttribute("language") && ele.getAttribute("language") !== "") {
+            if (url !== "") {
+                url += "&";
+            } else {
+                url += "?";
+            }
+
+            url += `lang=${ele.getAttribute("language")}`;
         }
 
-        url += `lang=${ele.getAttribute("language")}`;
-    }
+        if (ele.getAttribute("url") && ele.getAttribute("url") !== "") {
+            if (url !== "") {
+                url += "&";
+            } else {
+                url += "?";
+            }
 
-    if (ele.getAttribute("url") && ele.getAttribute("url") !== "") {
-        if (url !== "") {
-            url += "&";
-        } else {
-            url += "?";
+            url += `url=${ele.getAttribute("url")}`;
         }
 
-        url += `url=${ele.getAttribute("url")}`;
-    }
+        let lib = ele.getAttribute("lib");
 
-    let lib = ele.getAttribute("lib");
+        if (!lib.endsWith("/")) {
+            lib += "/";
+        }
 
-    if (!lib.endsWith("/")) {
-        lib += "/";
-    }
+        this.frame = document.createElement("div");
+        this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${lib}editor.html${url}"></iframe>`;
+        this.frame = this.frame.firstChild;
 
-    this.frame = document.createElement("div");
-    this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${lib}editor.html${url}"></iframe>`;
-    this.frame = this.frame.firstChild;
+        this.editor = null;
+        this.ready = new Event("ready");
 
-    if (value && value !== "") {
         this.frame.addEventListener("load", () => {
-            setTimeout(() => {
-                this.setCode(value);
-            }, 500);
+            this.editor = this.frame.contentWindow.editor;
+
+            if (value && value !== "") {
+                this.editor.code = value;
+            }
+
+            ele.dispatchEvent(this.ready);
         });
+
+        ele.parentNode.insertBefore(this.frame, ele);
     }
 
-    ele.parentNode.replaceChild(this.frame, ele);
+    get code() {
+        return this.editor.code;
+    }
+
+    set code(value) {
+        this.editor.code = value;
+    }
+
+    get errors() {
+        return this.editor.errors;
+    }
+
+    fix() {
+        this.editor.fix();
+
+        return this;
+    }
+
+    focus() {
+        this.frame.contentWindow.focus();
+
+        return this;
+    }
 }
-
-Editor.prototype.getCode = function getCode() {
-    return (this.frame.contentDocument || this.frame.contentWindow.document).getElementById("code").value;
-};
-
-Editor.prototype.setCode = function setCode(value) {
-    const code = (this.frame.contentDocument || this.frame.contentWindow.document).getElementById("code");
-
-    code.value = value;
-    code.dispatchEvent(new Event("input"));
-};
-
-Editor.prototype.getErrors = function getErrors() {
-    let errors = (this.frame.contentDocument || this.frame.contentWindow.document).getElementById("errors").innerText;
-
-    if (!errors || errors === "") {
-        errors = [];
-    } else {
-        errors = JSON.parse(errors);
-    }
-
-    return errors;
-};
 
 document.addEventListener("DOMContentLoaded", () => {
     const fields = Array.prototype.slice.call(document.getElementsByTagName("input"));
@@ -74,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (fields[key].getAttribute("type") === "editor") {
             const id = (fields[key].id || Date.now());
 
-            editor[id] = new Editor(fields[key], id, fields[key].value);
+            editors.add(id, new Editor(fields[key], id, fields[key].value));
         }
     });
 
@@ -83,6 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.keys(elements).forEach((key) => {
         const id = (elements[key].id || Date.now());
 
-        editor[id] = new Editor(elements[key], id, elements[key].innerText);
+        editors.add(id, new Editor(elements[key], id, elements[key].innerText));
     });
 });

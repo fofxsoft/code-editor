@@ -3,13 +3,6 @@
         <transition name="eslint-editor-fade" @before-enter="fadeIn">
             <div v-if="monaco" key="editor" class="eslint-editor-swap-container">
                 <div ref="monaco" class="eslint-editor-monaco" />
-                <div v-if="fix" class="eslint-editor-actions">
-                    <label><input v-model="previewFix" type="checkbox">Preview</label>
-                    <button @click="applyAutofix">Apply</button>
-                </div>
-            </div>
-            <div v-else key="placeholder" class="eslint-editor-swap-container">
-                <code class="eslint-editor-placeholder-code">{{ code }}</code>
             </div>
         </transition>
     </div>
@@ -238,12 +231,9 @@
         },
 
         mounted() {
-            import("./monaco").then(
-                ({
-                    default: monaco
-                }) => this.monaco = monaco,
-                error => this.monacoLoadingError = error
-            );
+            import("./monaco").then(({
+                default: monaco
+            }) => this.monaco = monaco, error => this.monacoLoadingError = error);
         },
 
         beforeDestroy() {
@@ -260,6 +250,14 @@
                 }
             },
 
+            focus() {
+                if (this.editor == null) {
+                    return;
+                }
+
+                this.editor.focus();
+            },
+
             initialize() {
                 if (this.monaco != null) {
                     dispose(this.editor);
@@ -267,6 +265,12 @@
                     this.$refs.monaco.innerHTML = "";
                     this.editor = this.previewFix ? this.createTwoPaneEditor() : this.createEditor();
                     this.lint();
+
+                    const me = this;
+
+                    window.focus = function focus() {
+                        me.focus();
+                    }
                 }
             },
 

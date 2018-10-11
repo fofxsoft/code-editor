@@ -1,8 +1,6 @@
 <template>
     <div class="monaco-container">
         <monaco class="monaco" :language="lang" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
-        <textarea id="code" class="model-input" v-model="code"></textarea>
-        <pre id="errors" class="model-input">{{ errors }}</pre>
     </div>
 </template>
 
@@ -27,8 +25,13 @@
                 config: null,
                 linter: null,
                 code: null,
+                fixedCode: null,
+                errors: [],
+                fixedErrors: [],
                 change(payload) {
-                    me.errors = JSON.stringify(payload.messages);
+                    me.errors = payload.messages;
+                    me.fixedCode = payload.fixedCode;
+                    me.fixedErrors = payload.fixedMessages;
                 },
             };
         },
@@ -47,12 +50,36 @@
                 this.linter = new Linter();
             }
 
+            const me = this;
+
+            window.editor = {
+                get code() {
+                    return me.code;
+                },
+                set code (value) {
+                    me.code = value;
+                },
+                get errors() {
+                    if (!me.errors) {
+                        return [];
+                    }
+
+                    return me.errors;
+                },
+                fix() {
+                    if (me.fixedCode && me.fixedCode !== me.code) {
+                        me.code = me.fixedCode;
+                        me.errors = me.fixedCode;
+                    }
+                },
+            };
+
             if (this.url) {
                 this.$http.get(this.url, { responseType: "text" }).then((response) => {
                     if (Object.prototype.toString.call(response.body) === "[object String]") {
-                        this.code = response.body;
+                        window.editor.code = response.body;
                     } else {
-                        this.code = JSON.stringify(response.body, null, 4);
+                        window.editor.code = JSON.stringify(response.body, null, 4);
                     }
                 });
             }
