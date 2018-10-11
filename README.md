@@ -39,8 +39,8 @@ $ npm run build
 First copy the build/editor folder to your application. Then include the following in your HTML.
 
 ```html
-<link href="editor/editor.css" rel="stylesheet">
-<script src="editor/editor.js"></script>
+<link href="/lib/code-editor/editor.css" rel="stylesheet">
+<script src="/lib/code-editor/editor.js"></script>
 ```
 
 **[back to top](#table-of-contents)**
