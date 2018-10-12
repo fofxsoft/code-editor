@@ -8,7 +8,7 @@
                 <transition name="editor-fade">
                     <div v-if="monacoLoadingError" key="error" class="loading-error">
                         <div class="error-message">
-                            Failed to load this editor
+                            Failed to Load Editor
                         </div>
                     </div>
                     <div v-else key="loading" class="loading">
@@ -85,33 +85,35 @@
             prop: "code",
             event: "input"
         },
+
         props: {
             linter: {
                 type: Object,
                 default: null
             },
+
             code: {
                 type: String,
                 default: ""
             },
+
             config: {
                 type: Object,
                 default() {
                     return {}
                 }
             },
+
             dark: {
                 type: Boolean,
                 default: false
             },
+
             filename: {
                 type: String,
                 default: "a.js"
             },
-            fix: {
-                type: Boolean,
-                default: false
-            },
+
             format: {
                 type: Object,
                 default() {
@@ -121,6 +123,7 @@
                     }
                 }
             },
+
             language: {
                 type: String,
                 default: "javascript"
@@ -136,30 +139,19 @@
                 messages: [],
                 fixedCode: this.code,
                 fixedMessages: [],
-                previewFix: false,
-                requestFix: false
             }
         },
 
         computed: {
             codeEditor() {
-                const editor = this.editor
+                const editor = this.editor;
+
                 if (editor != null) {
                     if (editor.getOriginalEditor != null) {
                         return editor.getOriginalEditor();
                     }
 
                     return editor;
-                }
-
-                return null;
-            },
-
-            fixedCodeEditor() {
-                const editor = this.editor;
-
-                if (editor != null && editor.getModifiedEditor != null) {
-                    return editor.getModifiedEditor();
                 }
 
                 return null;
@@ -181,10 +173,6 @@
                 this.invalidate();
             },
 
-            previewFix() {
-                this.initialize();
-            },
-
             config: {
                 handler() {
                     this.invalidate();
@@ -194,26 +182,6 @@
 
             filename() {
                 this.invalidate();
-            },
-
-            fix() {
-                this.initialize();
-            },
-
-            fixedCode(value) {
-                const editor = this.fixedCodeEditor;
-
-                if (editor != null) {
-                    updateValue(editor, value);
-                }
-            },
-
-            fixedMessages(value) {
-                const editor = this.fixedCodeEditor;
-
-                if (editor != null) {
-                    this.updateMarkers(editor, value);
-                }
             },
 
             format(value) {
@@ -238,10 +206,10 @@
                 } = this;
 
                 if (monaco != null) {
-                    for (const editor of [this.codeEditor, this.fixedCodeEditor]) {
-                        if (editor != null) {
-                            monaco.setModelLanguage(editor.getModel(), value);
-                        }
+                    const editor = this.codeEditor;
+
+                    if (editor != null) {
+                        monaco.setModelLanguage(editor.getModel(), value);
                     }
                 }
             },
@@ -280,7 +248,7 @@
                     dispose(this.editor);
 
                     this.$refs.monaco.innerHTML = "";
-                    this.editor = this.previewFix ? this.createTwoPaneEditor() : this.createEditor();
+                    this.editor = this.createEditor();
                     this.lint();
 
                     const me = this;
@@ -481,14 +449,6 @@
 
                 if (this.requestFix) {
                     this.requestFix = false;
-                    this.code = this.fixedCode;
-                }
-            },
-
-            applyAutofix() {
-                if (this.editing) {
-                    this.requestFix = true;
-                } else {
                     this.code = this.fixedCode;
                 }
             }
