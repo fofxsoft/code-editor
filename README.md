@@ -50,13 +50,13 @@ First copy the contents of the build folder to your application. Then include th
 To include a code editor on your page, simply add the tag.
 
 ```html
-<input type="editor" id="skywalker" name="skywalker" lib="/lib/code-editor/" language="javascript" value="">
+<input type="editor" id="skywalker" name="skywalker" language="javascript" value="">
 ```
 
 or
 
 ```html
-<editor id="skywalker" name="skywalker" lib="/lib/code-editor/" language="javascript"></editor>
+<editor id="skywalker" name="skywalker" language="javascript"></editor>
 ```
 
 **[back to top](#table-of-contents)**
@@ -87,9 +87,6 @@ or
   - mysql
   - vb
   - csharp
-
-- **lib**  
-  Required. This is the path to the build folder. This is the place where you copied the contents of this folder to.
 
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
