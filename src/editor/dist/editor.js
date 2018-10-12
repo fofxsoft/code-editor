@@ -1,5 +1,6 @@
 const editors = {
     items: {},
+    path: `${document.querySelector("script:last-child").getAttribute("src").split("?")[0].split("/").slice(0, -1).join("/")}/`,
     add(id, value) {
         this.items[id] = value;
     },
@@ -42,14 +43,8 @@ class Editor {
             url += `url=${ele.getAttribute("url")}`;
         }
 
-        let lib = ele.getAttribute("lib");
-
-        if (!lib.endsWith("/")) {
-            lib += "/";
-        }
-
         this.frame = document.createElement("div");
-        this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${lib}editor.html${url}"></iframe>`;
+        this.frame.innerHTML = `<iframe id="${id}" name="${(ele.getAttribute("name") || "")}" class="editor-frame ${(ele.getAttribute("class") || "")}" style="${(ele.getAttribute("style") || "")}" src="${editors.path}editor.html${url}"></iframe>`;
         this.frame = this.frame.firstChild;
 
         this.editor = null;

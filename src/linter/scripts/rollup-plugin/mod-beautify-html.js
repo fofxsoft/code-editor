@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 
-const beautifyCss = /monaco-editor(?:\/|\\)esm(?:\/|\\)vs(?:\/|\\)language(?:\/|\\)html(?:\/|\\)_deps(?:\/|\\)vscode-html-languageservice(?:\/|\\)beautify(?:\/|\\)beautify-css.js$/;
-const beautifyHtml = /monaco-editor(?:\/|\\)esm(?:\/|\\)vs(?:\/|\\)language(?:\/|\\)html(?:\/|\\)_deps(?:\/|\\)vscode-html-languageservice(?:\/|\\)beautify(?:\/|\\)beautify-html.js$/;
+const beautifyCss = /monaco(?:\/|\\)esm(?:\/|\\)vs(?:\/|\\)language(?:\/|\\)html(?:\/|\\)_deps(?:\/|\\)vscode-html-languageservice(?:\/|\\)beautify(?:\/|\\)beautify-css.js$/;
+const beautifyHtml = /monaco(?:\/|\\)esm(?:\/|\\)vs(?:\/|\\)language(?:\/|\\)html(?:\/|\\)_deps(?:\/|\\)vscode-html-languageservice(?:\/|\\)beautify(?:\/|\\)beautify-html.js$/;
 
 export default () => ({
     name: "beautify-html",

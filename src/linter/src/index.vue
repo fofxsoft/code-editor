@@ -1,8 +1,25 @@
 <template>
-    <div :class="{'eslint-editor-dark':dark}" class="eslint-editor-root">
-        <transition name="eslint-editor-fade" @before-enter="fadeIn">
-            <div v-if="monaco" key="editor" class="eslint-editor-swap-container">
-                <div ref="monaco" class="eslint-editor-monaco" />
+    <div :class="{'dark':dark}" class="root">
+        <transition name="editor-fade" @before-enter="fadeIn">
+            <div v-if="monaco" key="editor" class="swap-container">
+                <div ref="monaco" class="monaco" />
+            </div>
+            <div v-else key="placeholder" class="swap-container">
+                <transition name="editor-fade">
+                    <div v-if="monacoLoadingError" key="error" class="loading-error">
+                        <div class="error-message">
+                            Failed to load this editor
+                        </div>
+                    </div>
+                    <div v-else key="loading" class="loading">
+                        <div class="loading-icon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </transition>
             </div>
         </transition>
     </div>
@@ -480,11 +497,11 @@
 </script>
 
 <style>
-    .eslint-editor-root {
+    .root {
         position: relative;
     }
 
-    .eslint-editor-swap-container {
+    .swap-container {
         position: absolute;
         top: 0;
         left: 0;
@@ -492,93 +509,103 @@
         height: 100%;
     }
 
-    .eslint-editor-monaco {
+    .monaco {
         width: 100%;
         height: 100%;
     }
 
-    .eslint-editor-actions {
-        display: flex;
-        flex-direction: row;
+    .loading,
+    .loading-error {
         position: absolute;
-        right: 20px;
-        bottom: 8px;
-        border: 1px solid gray;
-        border-radius: 4px;
-        opacity: 0.3;
-        transition: opacity 0.3s;
+        color: #545454;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
     }
 
-    .eslint-editor-actions:hover {
-        opacity: 1;
+    .dark .loading,
+    .dark .loading-error {
+        color: #cecece;
     }
 
-    .eslint-editor-actions::before {
-        content: "🔧";
+    .error-message {
+        display: inline;
+    }
+
+    .loading-icon {
         display: inline-block;
-        margin: 2px;
-        padding: 5px;
-        font-size: 1em;
-        vertical-align: middle;
+        position: relative;
+        width: 64px;
+        height: 64px;
     }
 
-    .eslint-editor-actions,
-    .eslint-editor-actions button {
-        background-color: #ffffff;
-        color: #1e1e1e;
+    .loading-icon div {
+        position: absolute;
+        top: 27px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #007acc;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
     }
 
-    .eslint-editor-actions > * {
-        display: inline-block;
-        box-sizing: border-box;
-        width: 80px;
-        margin: 2px;
-        padding: 4px 8px;
-        border: 1px solid gray;
-        border-radius: 4px;
-        font-family: inherit;
-        font-size: 1em;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
+    .dark .loading-icon div {
+        background: #5f5f5f;
     }
 
-    .eslint-editor-root .eslint-editor-actions > *:hover {
-        background-color: rgba(128, 128, 128, 0.2);
+    .loading-icon div:nth-child(1) {
+        left: 6px;
+        animation: loading-icon1 0.6s infinite;
     }
 
-    .eslint-editor-root .eslint-editor-actions > *:active {
-        background-color: rgba(128, 128, 128, 0.4);
+    .loading-icon div:nth-child(2) {
+        left: 6px;
+        animation: loading-icon2 0.6s infinite;
     }
 
-    .eslint-editor-actions input[type="checkbox"] {
-        display: none;
+    .loading-icon div:nth-child(3) {
+        left: 26px;
+        animation: loading-icon2 0.6s infinite;
     }
 
-    .eslint-editor-root .eslint-editor-placeholder-code {
-        visibility: hidden;
+    .loading-icon div:nth-child(4) {
+        left: 45px;
+        animation: loading-icon3 0.6s infinite;
     }
 
-    @keyframes ESLintEditorLoadingIcon {
+    @keyframes loading-icon1 {
         0% {
-            transform: rotateY(0deg);
+            transform: scale(0);
         }
-        50% {
-            transform: rotateY(210deg);
-        }
+
         100% {
-            transform: rotateY(360deg);
+            transform: scale(1);
         }
     }
 
-    .eslint-editor-fade-enter-active,
-    .eslint-editor-fade-leave-active {
-        transition: opacity 0.3s ease;
+    @keyframes loading-icon3 {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0);
+        }
     }
 
-    .eslint-editor-fade-enter,
-    .eslint-editor-fade-leave-to {
-        opacity: 0;
+    @keyframes loading-icon2 {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        100% {
+            transform: translate(19px, 0);
+        }
     }
 
     .current-line {
@@ -586,7 +613,7 @@
         background: #f4f4f4;
     }
 
-    .eslint-editor-dark .current-line {
+    .dark .current-line {
         background: #363636;
     }
 
@@ -594,7 +621,7 @@
        box-shadow: -1px 0 0 0 #eee;
     }
 
-    .eslint-editor-dark .minimap {
+    .dark .minimap {
        box-shadow: -1px 0 0 0 #383838;
     }
 </style>
