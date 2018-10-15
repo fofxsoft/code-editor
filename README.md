@@ -34,7 +34,7 @@ $ npm run build
 ## Rules
 [JavaScript Rules](https://github.com/fofxsoft/code-editor/blob/master/ESLINT.md)
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Installing
 First copy the contents of the build folder to your application. Then include the following in your HTML.
@@ -44,7 +44,7 @@ First copy the contents of the build folder to your application. Then include th
 <script src="/lib/code-editor/editor.js"></script>
 ```
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Usage
 To include a code editor on your page, simply add the tag.
@@ -59,7 +59,7 @@ or
 <editor id="skywalker" name="skywalker" language="javascript"></editor>
 ```
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Attributes
 - **id**  
@@ -104,7 +104,7 @@ or
 - **innerText**  
   Optional. This is only available for the editor tag. The innerText will populate the editor
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Methods
 The initialization logic will create the editors object used to access the methods.
@@ -188,7 +188,7 @@ The initialization logic will create the editors object used to access the metho
   - **fix**  
     Object. Object to assist auto fixing.
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Events
 Custom events applied to the editor tag.
@@ -226,9 +226,9 @@ Custom events applied to the editor tag.
   });
   ```
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## License
 [MIT](https://github.com/fofxsoft/code-editor/blob/master/LICENSE.md)
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
