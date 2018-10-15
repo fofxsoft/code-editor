@@ -40,8 +40,8 @@ $ npm run build
 First copy the contents of the build folder to your application. Then include the following in your HTML.
 
 ```html
-<link href="/lib/code-editor/editor.css" rel="stylesheet">
-<script src="/lib/code-editor/editor.js"></script>
+<link href="/lib/editor/editor.css" rel="stylesheet">
+<script src="/lib/editor/editor.js"></script>
 ```
 
 **[back to top](#)**
@@ -63,7 +63,7 @@ or
 
 ## Attributes
 - **id**  
-  Required. Defines the id of the code editor container, and defines access key.
+  Required. Defines the id of the code editor container, and defines the access key.
   > Without an id, you will not be able to access the edited code of linter messages.
 
 - **name**  
@@ -87,6 +87,7 @@ or
   - mysql
   - vb
   - csharp
+  - markdown
 
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
@@ -102,7 +103,7 @@ or
   Optional. This is only available on the editor type input field. This will populate the contents of the editor.
 
 - **innerText**  
-  Optional. This is only available for the editor tag. The innerText will populate the editor
+  Optional. This is only available for the editor tag. The innerText will populate the editor.
 
 **[back to top](#)**
 
