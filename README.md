@@ -63,7 +63,7 @@ or
 
 ## Attributes
 - **id**  
-  Required. Defines the id of the code editor container, and defines access key.
+  Required. Defines the id of the code editor container, and defines the access key.
   > Without an id, you will not be able to access the edited code of linter messages.
 
 - **name**  
