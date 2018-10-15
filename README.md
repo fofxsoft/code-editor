@@ -87,6 +87,7 @@ or
   - mysql
   - vb
   - csharp
+  - markdown
 
 - **url**  
   Optional. This will run the defined url to fetch the editor contents. If a language is not set, this url will be used to auto detect the language.
