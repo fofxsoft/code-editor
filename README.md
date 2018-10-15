@@ -103,7 +103,7 @@ or
   Optional. This is only available on the editor type input field. This will populate the contents of the editor.
 
 - **innerText**  
-  Optional. This is only available for the editor tag. The innerText will populate the editor
+  Optional. This is only available for the editor tag. The innerText will populate the editor.
 
 **[back to top](#)**
 
