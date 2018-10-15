@@ -1,5 +1,5 @@
 # Code Editor
-Online code editor with ESLint based on VS Code. [Demo](https://fofxsoft.github.io/code-editor/example/)
+Online code editor with ESLint based on VS Code. [Demo](https://fofxsoft.github.io/code/example/)
 
 ## Table of Contents
 
