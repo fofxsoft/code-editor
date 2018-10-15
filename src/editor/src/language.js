@@ -36,6 +36,10 @@ export default {
             case "json":
                 return "json";
 
+            case "md":
+            case "markdown":
+                return "markdown";
+
             case "txt":
             case "text":
                 return "text";
@@ -81,6 +85,9 @@ export default {
 
             case "json":
                 return "json";
+
+            case "md":
+                return "markdown";
 
             case "txt":
             default:

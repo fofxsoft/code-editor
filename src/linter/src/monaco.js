@@ -42,6 +42,7 @@ import "../../monaco/esm/vs/basic-languages/mysql/mysql.contribution";
 import "../../monaco/esm/vs/basic-languages/xml/xml.contribution";
 import "../../monaco/esm/vs/basic-languages/csharp/csharp.contribution";
 import "../../monaco/esm/vs/basic-languages/vb/vb.contribution";
+import "../../monaco/esm/vs/basic-languages/markdown/markdown.contribution";
 
 import editorWorker from "../../monaco/esm/vs/editor/editor.worker";
 import cssWorker from "../../monaco/esm/vs/language/css/css.worker";
