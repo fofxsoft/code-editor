@@ -40,8 +40,8 @@ $ npm run build
 First copy the contents of the build folder to your application. Then include the following in your HTML.
 
 ```html
-<link href="/lib/code-editor/editor.css" rel="stylesheet">
-<script src="/lib/code-editor/editor.js"></script>
+<link href="/lib/editor/editor.css" rel="stylesheet">
+<script src="/lib/editor/editor.js"></script>
 ```
 
 **[back to top](#)**
