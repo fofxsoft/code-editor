@@ -29,7 +29,7 @@ $ npm run build
 
 > The build process will deploy to the build folder.
 
-**[back to top](#table-of-contents)**
+**[back to top](#)**
 
 ## Rules
 [JavaScript Rules](https://github.com/fofxsoft/code-editor/blob/master/ESLINT.md)
