@@ -72,7 +72,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## References
 
@@ -123,7 +123,7 @@
     console.log(b); // ReferenceError
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Objects
 
@@ -297,7 +297,7 @@
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Arrays
 
@@ -464,7 +464,7 @@
     ];
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Destructuring
 
@@ -533,7 +533,7 @@
     const { left, top } = processInput(input);
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Strings
 
@@ -616,7 +616,7 @@
     const foo = `my name is "${name}"`;
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Functions
 
@@ -898,7 +898,7 @@
     );
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Arrow Functions
 
@@ -1059,7 +1059,7 @@
     )
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Classes & Constructors
 
@@ -1226,7 +1226,7 @@
     }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Modules
 
@@ -1385,7 +1385,7 @@
     import barCss from "bar.css";
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Iterators and Generators
 
@@ -1505,7 +1505,7 @@
     };
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Properties
 
@@ -1551,7 +1551,7 @@
     const binary = 2 ** 10;
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Variables
 
@@ -1785,7 +1785,7 @@
     // 'coords' is now the 'data' object without its 'type' property.
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Hoisting
 
@@ -1884,7 +1884,7 @@
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Comparison Operators & Equality
 
@@ -2065,7 +2065,7 @@
     const bar = a + b / c * d;
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Blocks
 
@@ -2181,7 +2181,7 @@
     }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Control Statements
 
@@ -2252,7 +2252,7 @@
     }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Comments
 
@@ -2394,7 +2394,7 @@
     }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Whitespace
 
@@ -2825,7 +2825,7 @@
     ```
     <!-- markdownlint-enable MD012 -->
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Commas
 
@@ -2943,7 +2943,7 @@
     );
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Semicolons
 
@@ -2995,7 +2995,7 @@
 
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Type Casting & Coercion
 
@@ -3084,7 +3084,7 @@
     const hasAge = !!age;
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Naming Conventions
 
@@ -3323,7 +3323,7 @@
     };
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Accessors
 
@@ -3392,7 +3392,7 @@
     }
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Events
 
@@ -3423,7 +3423,7 @@
     });
     ```
 
-  **[back to top](#)**
+  [Back to Top](#)
 
 ## jQuery
 
@@ -3495,14 +3495,14 @@
     $sidebar.find("ul").hide();
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## ECMAScript 5 Compatibility
 
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[back to top](#)**
+[Back to Top](#)
 
 <a name="ecmascript-6-styles"></a>
 ## ECMAScript 6+ (ES 2015+) Styles
@@ -3530,7 +3530,7 @@
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Standard Library
 
@@ -3570,7 +3570,7 @@
     Number.isFinite(parseInt("2e3", 10)); // true
     ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Performance
 
@@ -3583,4 +3583,4 @@
   - [Long String Concatenation](https://jsperf.com/ya-string-concat)
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   
-**[back to top](#)**
+[Back to Top](#)

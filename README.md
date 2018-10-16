@@ -29,12 +29,12 @@ $ npm run build
 
 > The build process will deploy to the build folder.
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Rules
 [JavaScript Rules](https://github.com/fofxsoft/code-editor/blob/master/ESLINT.md)
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Installing
 First copy the contents of the build folder to your application. Then include the following in your HTML.
@@ -44,7 +44,7 @@ First copy the contents of the build folder to your application. Then include th
 <script src="/lib/editor/editor.js"></script>
 ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Usage
 To include a code editor on your page, simply add the tag.
@@ -59,7 +59,7 @@ or
 <editor id="skywalker" name="skywalker" language="javascript"></editor>
 ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Attributes
 - **id**  
@@ -105,7 +105,7 @@ or
 - **innerText**  
   Optional. This is only available for the editor tag. The innerText will populate the editor.
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Methods
 The initialization logic will create the editors object used to access the methods.
@@ -189,7 +189,7 @@ The initialization logic will create the editors object used to access the metho
   - **fix**  
     Object. Object to assist auto fixing.
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## Events
 Custom events applied to the editor tag.
@@ -227,9 +227,9 @@ Custom events applied to the editor tag.
   });
   ```
 
-**[back to top](#)**
+[Back to Top](#)
 
 ## License
 [MIT](https://github.com/fofxsoft/code-editor/blob/master/LICENSE.md)
 
-**[back to top](#)**
+[Back to Top](#)
