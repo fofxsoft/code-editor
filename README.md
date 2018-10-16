@@ -99,6 +99,9 @@ or
 - **style**  
   Optional. Used to define css style for the code editor container.
 
+- **dark**  
+  Optional. This property sets the editor to dark mode.
+
 - **value**  
   Optional. This is only available on the editor type input field. This will populate the contents of the editor.
 
