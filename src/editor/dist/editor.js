@@ -33,6 +33,16 @@ class Editor {
             url += "theme=dark";
         }
 
+        if (ele.hasAttribute("minimap") && ele.getAttribute("minimap") !== "") {
+            if (url !== "") {
+                url += "&";
+            } else {
+                url += "?";
+            }
+
+            url += `minimap=${ele.getAttribute("minimap").toLowerCase()}`;
+        }
+
         if (ele.hasAttribute("url") && ele.getAttribute("url") !== "") {
             if (url !== "") {
                 url += "&";

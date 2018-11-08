@@ -21,6 +21,7 @@ const router = new Router({
             url: route.query.url,
             lang: language.parse(route.query.lang, route.query.url),
             dark: route.query.theme === "dark",
+            minimap: (route.query.minimap ? route.query.minimap.toLowerCase() : "true"),
         }),
     }],
 });

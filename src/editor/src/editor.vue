@@ -1,6 +1,6 @@
 <template>
     <div id="monaco-container">
-        <monaco class="monaco" :dark="dark ? true : false" :language="lang" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
+        <monaco class="monaco" :dark="dark ? true : false" :language="lang" :minimap="minimap" :linter="linter" :config="config" v-model="code" @change="change" @input="input" />
     </div>
 </template>
 
@@ -13,7 +13,7 @@
 
     export default {
         name: "editor",
-        props: ["url", "lang", "dark"],
+        props: ["url", "lang", "dark", "minimap"],
         components: {
             monaco
         },

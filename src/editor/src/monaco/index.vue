@@ -33,9 +33,6 @@
             autoFindInSelection: true,
             seedSearchStringFromSelection: true
         },
-        minimap: {
-            enabled: true
-        },
         renderControlCharacters: true,
         renderIndentGuides: true,
         renderWhitespace: "boundary",
@@ -107,6 +104,11 @@
             dark: {
                 type: Boolean,
                 default: false
+            },
+
+            minimap: {
+                type: Boolean,
+                default: true
             },
 
             filename: {
@@ -268,7 +270,10 @@
                     this.$refs.monaco,
                     Object.assign(
                         {
-                            theme: this.dark ? "vs-dark" : "vs"
+                            theme: this.dark ? "vs-dark" : "vs",
+                            minimap: {
+                                enabled: this.minimap
+                            }
                         },
                         EDITOR_OPTS
                     )
@@ -299,7 +304,10 @@
                     this.$refs.monaco,
                     Object.assign(
                         {
-                            theme: this.dark ? "vs-dark" : "vs"
+                            theme: this.dark ? "vs-dark" : "vs",
+                            minimap: {
+                                enabled: this.minimap
+                            }
                         },
                         EDITOR_OPTS
                     )
