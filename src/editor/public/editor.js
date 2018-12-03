@@ -100,6 +100,10 @@ class Editor {
         return this.editor.errors;
     }
 
+    get languages() {
+        return this.frame.contentWindow.languages();
+    }
+
     fix() {
         this.editor.fix();
 
@@ -110,6 +114,10 @@ class Editor {
         this.frame.contentWindow.focus();
 
         return this;
+    }
+
+    completionProvider(handler) {
+        this.frame.contentWindow.completionProvider(handler);
     }
 }
 

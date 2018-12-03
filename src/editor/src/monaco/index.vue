@@ -258,6 +258,14 @@
                     window.focus = function focus() {
                         me.focus();
                     }
+
+                    window.completionProvider = function (handler) {
+                        me.completionProvider(handler);
+                    }
+
+                    window.languages = function () {
+                        return me.languages();
+                    }
                 }
             },
 
@@ -348,6 +356,18 @@
                 return editor;
             },
 
+            completionProvider(handler) {
+                const {
+                    monaco
+                } = this;
+
+                monaco.languages.registerCompletionItemProvider(this.language, {
+                    provideCompletionItems: function (model, position) {
+                        handler(monaco, model, position);
+                    }
+                });
+            },
+
             messageToMarker(message) {
                 const {
                     monaco
@@ -387,6 +407,14 @@
                 const markers = messages.map(this.messageToMarker, this);
 
                 monaco.editor.setModelMarkers(model, id, markers);
+            },
+
+            languages() {
+                const {
+                    monaco
+                } = this;
+
+                return monaco.languages;
             },
 
             invalidate() {
